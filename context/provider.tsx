@@ -1,6 +1,7 @@
 import { use, useEffect, useMemo, useState } from 'react';
 
 import { ICar } from '../interfaces/car.interface';
+import { CarsApi } from '../services/api';
 import { AppContext } from '.';
 
 type TAppContextProviderProps = {
@@ -14,9 +15,7 @@ export function AppContextProvider({ children }: TAppContextProviderProps) {
 
   useEffect(() => {
     (async () => {
-      const res = await fetch('http://localhost:3000/api/cars');
-      const json = await res.json();
-      setCars(json);
+      CarsApi.get('/cars').then(({ data }) => setCars(data));
     })();
   }, []);
 

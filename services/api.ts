@@ -1,5 +1,8 @@
 import axios from 'axios';
 
 export const CarsApi = axios.create({
-  baseURL: 'http://localhost:3000/api',
+  baseURL:
+    process.env.NEXT_NODE_ENV === 'development'
+      ? 'http://localhost:3000/api'
+      : 'https://wedevup-tan.vercel.app/api',
 });
