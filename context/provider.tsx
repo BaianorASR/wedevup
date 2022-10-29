@@ -27,8 +27,8 @@ export function AppContextProvider({ children }: TAppContextProviderProps) {
           setCars(data.items);
           setTotalPage(data.totalPage);
         })
-        .catch(console.warn);
-      // .finally(() => setLoading(false));
+        .catch(console.warn)
+        .finally(() => setLoading(false));
     })();
   }, []);
 
