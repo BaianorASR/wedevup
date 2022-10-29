@@ -11,7 +11,7 @@ export default function Home() {
   return (
     <>
       <OptionsAccordion />
-      <section className="container w-full px-4 mx-auto transition-transform delay-1000">
+      <section className="container flex justify-center w-full px-4 mx-auto transition-transform delay-1000">
         {loading ? (
           <div className="sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 place-items-center grid w-full grid-cols-1 gap-4">
             {new Array(8).fill(0).map((_, index) => (
