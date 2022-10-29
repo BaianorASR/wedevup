@@ -16,10 +16,10 @@ export function AppContextProvider({ children }: TAppContextProviderProps) {
     setLoading(true);
 
     (async () => {
-      await CarsApi.get('/cars')
-        .then(({ data }) => setCars(data))
-        .catch(console.warn)
-        .finally(() => setLoading(false));
+      // await CarsApi.get('/cars')
+      //   .then(({ data }) => setCars(data))
+      //   .catch(console.warn)
+      //   .finally(() => setLoading(false));
     })();
   }, []);
 

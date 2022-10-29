@@ -9,7 +9,7 @@ export function MainLayout({ children }: MainLayoutProps) {
   return (
     <>
       <Header />
-      <div className="sm:px-none container min-h-screen mx-auto">{children}</div>
+      <div className="sm:px-none container mx-auto">{children}</div>
       <Footer />
     </>
   );
