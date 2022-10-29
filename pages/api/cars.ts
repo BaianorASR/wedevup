@@ -10,6 +10,7 @@ export default function handler(req: NextApiRequest, res: NextApiResponse<any>) 
 
   if (req.method === 'POST') {
     const { day, km } = req.body;
+    console.log(day);
 
     data = data.map((item) => {
       return {

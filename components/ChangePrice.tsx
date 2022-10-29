@@ -3,23 +3,23 @@ import { Calendar, Ruler } from 'phosphor-react';
 import { usePrice } from '../hooks/usePrice';
 
 export function ChangePrice() {
-  const { days, km, setDays, setKm, fetchReloadDataWithNewPrices } = usePrice();
+  const { day, km, setDay, setKm, fetchReloadDataWithNewPrices } = usePrice();
 
   return (
     <div className="sm:grid-cols-3 grid items-end grid-cols-1 gap-4">
       <div>
         <div className="block mb-2">
-          <Label htmlFor="days" value="Quantidade de dias" />
+          <Label htmlFor="day" value="Quantidade de dias" />
         </div>
         <TextInput
-          id="days"
+          id="day"
           type="number"
           placeholder="exemplo: 200"
-          value={days || ''}
+          value={day || ''}
           icon={Calendar as any}
           min={1}
           required
-          onChange={(e) => setDays(+e.target.value)}
+          onChange={(e) => setDay(+e.target.value)}
         />
       </div>
       <div>
