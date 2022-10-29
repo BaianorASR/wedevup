@@ -2,7 +2,6 @@ import { ICar } from '../interfaces/car.interface';
 
 export function calculeCarPrice(car: any, day = 1, km = 5) {
   let price = car.pricePerDay * day;
-  console.log(car.pricePerDay, day);
 
   switch (true) {
     case day > 10:
