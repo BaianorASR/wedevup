@@ -1,4 +1,4 @@
-import { Button, Tooltip } from 'flowbite-react';
+import { Tooltip } from 'flowbite-react';
 import { Moon, Sun, Taxi } from 'phosphor-react';
 import { useTheme } from '../hooks/useTheme';
 
