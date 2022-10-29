@@ -15,7 +15,7 @@ export function Filter() {
   } = useFilter();
 
   return (
-    <div className="grid grid-cols-1 sm:grid-cols-3 p-4 gap-4 items-end">
+    <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 items-end">
       <div>
         <div className="mb-2 block">
           <Label htmlFor="distance" value="Distancia maxima" color="white" />
