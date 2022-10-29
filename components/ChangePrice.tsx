@@ -1,40 +1,44 @@
 import { Button, Label, TextInput } from 'flowbite-react';
+import { Calendar, Ruler } from 'phosphor-react';
+import { usePrice } from '../hooks/usePrice';
 
 export function ChangePrice() {
+  const { days, km, setDays, setKm, fetchReloadDataWithNewPrices } = usePrice();
+
   return (
-    <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 items-end">
+    <div className="sm:grid-cols-3 grid items-end grid-cols-1 gap-4">
       <div>
-        <div className="mb-2 block">
-          <Label htmlFor="distance" value="Quantidade de dias" color="white" />
+        <div className="block mb-2">
+          <Label htmlFor="days" value="Quantidade de dias" />
         </div>
         <TextInput
-          id="distance"
+          id="days"
           type="number"
           placeholder="exemplo: 200"
-          // value={distance || ''}
-          // icon={Car as any}
+          value={days || ''}
+          icon={Calendar as any}
           min={1}
           required
-          // onChange={e => setDistance(+e.target.value)}
+          onChange={(e) => setDays(+e.target.value)}
         />
       </div>
       <div>
-        <div className="mb-2 block">
-          <Label htmlFor="duration" value="Quantidade de Km" color="white" />
+        <div className="block mb-2">
+          <Label htmlFor="kms" value="Quantidade em km" />
         </div>
         <TextInput
-          id="duration"
+          id="kms"
           type="number"
           placeholder="exemplo: 10"
-          // value={duration || ''}
-          // icon={Calendar as any}
-          min={1}
+          value={km || ''}
+          icon={Ruler as any}
+          min={5}
           required
-          // onChange={e => setDuration(+e.target.value)}
+          onChange={(e) => setKm(+e.target.value)}
         />
       </div>
 
-      <Button type="submit" color="purple">
+      <Button type="submit" color="purple" onClick={fetchReloadDataWithNewPrices}>
         Calcular
       </Button>
     </div>

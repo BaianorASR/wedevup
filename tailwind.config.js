@@ -1,3 +1,4 @@
+const colors = require('tailwindcss/colors');
 /** @type {import('tailwindcss').Config} */
 module.exports = {
   darkMode: 'class',
@@ -16,19 +17,14 @@ module.exports = {
     'shadow-lg',
   ],
   content: [
-    'node_modules/flowbite-react/**/*.{js,jsx,ts,tsx}',
     './node_modules/flowbite-react/**/*.js',
     './pages/**/*.{js,ts,jsx,tsx}',
     './components/**/*.{js,ts,jsx,tsx}',
+    './public/**/*.html',
   ],
   theme: {
     extend: {
-      colors: {
-        'we-dark-blue': '#08003C',
-        'we-blue': '#231772',
-        'we-green': '#25D366',
-        'we-purple': '#6F64B8',
-      },
+      colors: {},
     },
   },
   plugins: [require('flowbite/plugin')],

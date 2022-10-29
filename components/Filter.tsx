@@ -15,10 +15,10 @@ export function Filter() {
   } = useFilter();
 
   return (
-    <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 items-end">
+    <div className="sm:grid-cols-3 grid items-end grid-cols-1 gap-4">
       <div>
-        <div className="mb-2 block">
-          <Label htmlFor="distance" value="Distancia maxima" color="white" />
+        <div className="block mb-2">
+          <Label htmlFor="distance" value="Distancia maxima" />
         </div>
         <TextInput
           id="distance"
@@ -32,8 +32,8 @@ export function Filter() {
         />
       </div>
       <div>
-        <div className="mb-2 block">
-          <Label htmlFor="duration" value="Duração maxima" color="white" />
+        <div className="block mb-2">
+          <Label htmlFor="duration" value="Duração maxima" />
         </div>
         <TextInput
           id="duration"
@@ -47,7 +47,7 @@ export function Filter() {
         />
       </div>
 
-      <Button.Group className="grid grid-cols-2 ">
+      <Button.Group className=" grid grid-cols-2">
         <Button
           type="submit"
           color="purple"

@@ -7,9 +7,8 @@ export function useFilter() {
   const [distance, setDistance] = useState<number>(0);
   const [duration, setDuration] = useState<number>(0);
   const [hasFilter, setHasFilter] = useState<boolean>(false);
-  const [loading, setLoading] = useState<boolean>(false);
 
-  const { setCars } = useAppContext();
+  const { setCars, setLoading } = useAppContext();
 
   const fetchFilteredData = useCallback(async () => {
     setLoading(true);
@@ -21,14 +20,14 @@ export function useFilter() {
       queryString += `duration=${duration}`;
     }
 
-    CarsApi.get(`/cars?${queryString}`)
+    await CarsApi.get(`/cars?${queryString}`)
       .then(({ data }) => {
         setCars(data);
         setHasFilter(true);
       })
       .catch(console.warn)
       .finally(() => setLoading(false));
-  }, [distance, duration, setCars]);
+  }, [distance, duration, setCars, setLoading]);
 
   const reFetchData = useCallback(async () => {
     setLoading(true);
@@ -40,7 +39,7 @@ export function useFilter() {
       })
       .catch(console.warn)
       .finally(() => setLoading(false));
-  }, [setCars]);
+  }, [setCars, setLoading]);
 
   const hookValue = useMemo(
     () => ({
@@ -48,13 +47,12 @@ export function useFilter() {
       distance,
       duration,
       hasFilter,
-      loading,
       reFetchData,
       setHasFilter,
       setDistance,
       setDuration,
     }),
-    [distance, duration, fetchFilteredData, hasFilter, reFetchData, loading]
+    [distance, duration, fetchFilteredData, hasFilter, reFetchData]
   );
 
   return hookValue;
