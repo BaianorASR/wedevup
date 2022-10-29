@@ -7,6 +7,11 @@ type TAppContext = {
   setCars: (cars: ICar[]) => void;
   loading: boolean;
   setLoading: (cars: boolean) => void;
+  query: string;
+  setQuery: (query: string) => void;
+  page: number;
+  setPage: (page: number) => void;
+  totalPage: number;
 };
 
 export const AppContext = createContext<TAppContext>(null!);

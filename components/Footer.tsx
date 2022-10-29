@@ -4,7 +4,7 @@ import { IconWeDevUp } from './icons/wedevup';
 
 export function Footer() {
   return (
-    <F container={true} className="mt-10">
+    <F container={true} className="mt-16">
       <div className="w-full text-center">
         <div className="sm:flex sm:items-center sm:justify-between justify-between w-full">
           <IconWeDevUp />

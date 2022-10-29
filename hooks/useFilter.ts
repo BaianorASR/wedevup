@@ -1,4 +1,5 @@
-import { useCallback, useMemo, useState } from 'react';
+import queryString from 'query-string';
+import { useCallback, useEffect, useMemo, useState } from 'react';
 
 import { useAppContext } from '../context';
 import { CarsApi } from '../services/api';
@@ -8,38 +9,25 @@ export function useFilter() {
   const [duration, setDuration] = useState<number>(0);
   const [hasFilter, setHasFilter] = useState<boolean>(false);
 
-  const { setCars, setLoading } = useAppContext();
+  const { setQuery, query } = useAppContext();
 
   const fetchFilteredData = useCallback(async () => {
-    setLoading(true);
+    const Q = queryString.parse(query);
+    setQuery(
+      queryString.stringify(
+        { ...Q, distance: distance || '', duration: duration || '' },
+        { skipEmptyString: true, skipNull: true }
+      )
+    );
 
-    let queryString = '';
-    if (distance) queryString += `distance=${distance}`;
-    if (duration) {
-      if (queryString) queryString += '&';
-      queryString += `duration=${duration}`;
-    }
-
-    await CarsApi.get(`/cars?${queryString}`)
-      .then(({ data }) => {
-        setCars(data);
-        setHasFilter(true);
-      })
-      .catch(console.warn)
-      .finally(() => setLoading(false));
-  }, [distance, duration, setCars, setLoading]);
+    setHasFilter(!!distance || !!duration);
+  }, [distance, duration, query, setQuery]);
 
   const reFetchData = useCallback(async () => {
-    setLoading(true);
-
-    return CarsApi.get(`/cars`)
-      .then(({ data }) => {
-        setCars(data);
-        setHasFilter(false);
-      })
-      .catch(console.warn)
-      .finally(() => setLoading(false));
-  }, [setCars, setLoading]);
+    const { distance, duration, ...q } = queryString.parse(query);
+    setQuery(queryString.stringify({ ...q }, { skipEmptyString: true, skipNull: true }));
+    setHasFilter(false);
+  }, [query, setQuery]);
 
   const hookValue = useMemo(
     () => ({
