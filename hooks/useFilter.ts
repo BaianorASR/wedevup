@@ -2,7 +2,6 @@ import queryString from 'query-string';
 import { useCallback, useEffect, useMemo, useState } from 'react';
 
 import { useAppContext } from '../context';
-import { CarsApi } from '../services/api';
 
 export function useFilter() {
   const [distance, setDistance] = useState<number>(0);

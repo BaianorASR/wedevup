@@ -25,12 +25,22 @@ export default function Home() {
             ))}
           </div>
         )}
-        <Pagination
-          currentPage={page}
-          totalPages={totalPage}
-          onPageChange={setPage}
-          showIcons
-        />
+        <div className=" flex flex-col items-center justify-center">
+          <p className="dark:text-gray-300 flex gap-1 text-gray-700">
+            Página
+            <span className="dark:text-white font-bold text-black">{page}</span>
+            de
+            <span className="dark:text-white font-bold text-black">{totalPage}</span>
+          </p>
+
+          <Pagination
+            currentPage={page}
+            totalPages={totalPage}
+            onPageChange={setPage}
+            layout="navigation"
+            showIcons
+          />
+        </div>
       </section>
     </>
   );

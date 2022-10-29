@@ -2,7 +2,7 @@ export function CardSkeleton() {
   return (
     <div
       role="status"
-      className="animate-pulse dark:border-gray-700 w-full max-w-sm border border-gray-200 rounded shadow"
+      className="animate-pulse dark:border-gray-700 w-full max-w-sm h-[160px] border border-gray-200 rounded shadow"
     >
       <div className="dark:bg-gray-700 h-44 flex items-center justify-center mb-4 bg-gray-300 rounded rounded-b-none">
         <svg

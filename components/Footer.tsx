@@ -4,7 +4,10 @@ import { IconWeDevUp } from './icons/wedevup';
 
 export function Footer() {
   return (
-    <F container={true} className="mt-16">
+    <F
+      container={true}
+      className="dark:border-none mt-16 bg-gray-200 border rounded-b-none"
+    >
       <div className="w-full text-center">
         <div className="sm:flex sm:items-center sm:justify-between justify-between w-full">
           <IconWeDevUp />
@@ -14,14 +17,14 @@ export function Footer() {
               icon={GithubLogo as any}
               target="_blank"
             >
-              About
+              Github
             </F.Icon>
             <F.Icon
               href="https://www.linkedin.com/in/baianorasr/"
               icon={LinkedinLogo as any}
               target="_blank"
             >
-              Privacy Policy
+              Linkedin
             </F.Icon>
           </div>
         </div>

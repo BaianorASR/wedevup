@@ -16,11 +16,12 @@ class MyDocument extends Document {
 
   render(): JSX.Element {
     return (
-      <Html className="dark min-h-screen">
+      <Html id="theme-root" className="dark min-h-screen transition-colors">
         <Head />
         <body>
           <Main />
           <NextScript />
+          <script></script>
         </body>
       </Html>
     );
