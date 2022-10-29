@@ -1,14 +1,15 @@
 import { Footer as F } from 'flowbite-react';
 import { GithubLogo, LinkedinLogo } from 'phosphor-react';
+
 import { IconWeDevUp } from './icons/wedevup';
 
 export function Footer() {
   return (
     <F
       container={true}
-      className="dark:border-none mt-16 bg-gray-200 border rounded-b-none"
+      className="dark:border-none mt-20 bg-gray-200 border rounded-b-none"
     >
-      <div className="w-full text-center">
+      <div className="container w-full mx-auto text-center">
         <div className="sm:flex sm:items-center sm:justify-between justify-between w-full">
           <IconWeDevUp />
           <div className="sm:mt-0 sm:justify-center flex mt-4 space-x-6">

@@ -16,7 +16,7 @@ class MyDocument extends Document {
 
   render(): JSX.Element {
     return (
-      <Html id="theme-root" className="dark min-h-screen transition-colors">
+      <Html className="dark">
         <Head />
         <body>
           <Main />

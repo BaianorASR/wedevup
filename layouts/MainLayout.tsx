@@ -7,10 +7,10 @@ type MainLayoutProps = {
 
 export function MainLayout({ children }: MainLayoutProps) {
   return (
-    <>
+    <div className="flex flex-col h-screen">
       <Header />
-      <div className="sm:px-none container mx-auto">{children}</div>
+      <div className="sm:px-none grow container mx-auto">{children}</div>
       <Footer />
-    </>
+    </div>
   );
 }
